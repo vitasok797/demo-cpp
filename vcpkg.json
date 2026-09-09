@@ -2,7 +2,8 @@
     "name": "demo",
     "dependencies": [
         "fmt",
-        "gtest"
+        "gtest",
+        "protobuf"
     ],
-    "builtin-baseline": "2b65c20fc66eda893aa15a15a453c3cf09500b19"
+    "builtin-baseline": "9e593bb18ea69cc5095e012465dcd675a822ed0d"
 }
