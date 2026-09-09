@@ -13,6 +13,7 @@ function(target_set_cxx_base_compile_options target)
             /utf-8
             /Zc:preprocessor
             /wd4068  # Suppress "unknown pragma" warning
+            /wd4702  # Suppress false positive warning (https://github.com/fmtlib/fmt/issues/4810)
             )
     else()
         target_compile_options(${target} PRIVATE
