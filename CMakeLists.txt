@@ -20,7 +20,9 @@ add_library(${CUR_TARGET} INTERFACE)
 find_package(fmt CONFIG REQUIRED)
 target_link_libraries(${CUR_TARGET} INTERFACE fmt::fmt)
 
-# add dependency here
+find_package(nlohmann_json REQUIRED)  # FIX: fastdds vcpkg port dependency bug
+find_package(fastdds CONFIG REQUIRED)
+target_link_libraries(${CUR_TARGET} INTERFACE fastdds)
 
 #--- executable ----------------------------------------------------------------------------------
 

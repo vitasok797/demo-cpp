@@ -1,6 +1,7 @@
 {
     "name": "demo",
     "dependencies": [
+        "fastdds",
         "fmt",
         "gtest"
     ],
