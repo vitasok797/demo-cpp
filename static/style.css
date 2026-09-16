@@ -1,0 +1,64 @@
+:root { color-scheme: light; font-family: "Segoe UI", system-ui, sans-serif; color: #192b30; background: #f2f4ef; }
+* { box-sizing: border-box; }
+body { margin: 0; background: radial-gradient(ellipse at 10% 30%, #e5eee2 0, transparent 45%); }
+main { max-width: 1240px; margin: auto; padding: 30px 40px; }
+header { display: flex; align-items: center; gap: 16px; font-size: 11px; font-weight: 700; letter-spacing: 1.8px; }
+.brand { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 12px; color: white; background: #203f38; text-decoration: none; font-size: 25px; letter-spacing: -4px; padding-right: 4px; }
+.brand span { font-size: 18px; color: #c6ed9c; }
+.local { margin-left: auto; color: #56765d; font-size: 10px; }
+.intro { margin: 48px 0 30px; }
+.eyebrow { font-size: 10px; letter-spacing: 2px; font-weight: 700; color: #627d6a; margin: 0 0 12px; }
+h1 { font-size: clamp(32px, 4vw, 48px); letter-spacing: -2px; font-weight: 600; margin: 0 0 16px; }
+.intro > p:last-child { color: #72807c; font-size: 14px; line-height: 1.8; }
+.workspace { display: grid; grid-template-columns: 390px minmax(0, 1fr); gap: 24px; }
+.counter-card, .log-card { border: 1px solid #dfe5dc; border-radius: 22px; overflow: hidden; box-shadow: 0 12px 35px #27372905; }
+.counter-card { padding: 28px; background: #fffefa; }
+.card-heading { display: flex; justify-content: space-between; align-items: center; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; color: #758379; }
+.live-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #8ca378; }
+.counter { font-size: 96px; letter-spacing: -5px; line-height: 1.2; margin: 22px 0 28px; font-weight: 600; text-align: center; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+button { font: inherit; cursor: pointer; }
+button:focus-visible, .logs:focus-visible { outline: 3px solid #65a69c; outline-offset: 4px; }
+.increment { display: flex; justify-content: space-between; width: 100%; background: #d9f5a6; border: 1px solid #c9e995; border-radius: 12px; padding: 17px 20px; color: #27432f; font-size: 16px; font-weight: 600; transition: background .15s, transform .15s; }
+.increment:hover { background: #c9ed8e; }
+.increment:active { transform: translateY(1px); }
+.increment:disabled { opacity: .4; cursor: not-allowed; }
+.sequence { text-align: center; font-family: Consolas, monospace; font-size: 9px; color: #8e978b; margin: 12px 0 28px; }
+.transport { border-top: 1px solid #e9ece5; padding: 18px 0; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.transport strong { font-size: 12px; margin-left: 8px; }
+.transport small { display: block; font-size: 11px; margin-top: 8px; color: #90978d; }
+.tag { display: inline-block; font: 10px Consolas, monospace; font-weight: 700; padding: 4px 6px; border-radius: 5px; }
+.http { background: #e8effa; color: #547baa; }
+.ws { background: #e8f1e5; color: #658151; }
+.dom { background: #7946b5; color: #ffffff; }
+.error { background: #ffe9e4; color: #b45246; }
+.status { font-size: 10px; color: #899080; white-space: nowrap; }
+.online { color: #658151; }
+.log-card { background: #fffefa; display: flex; flex-direction: column; min-width: 0; }
+.log-heading { padding: 26px 26px 20px; display: flex; align-items: center; justify-content: space-between; }
+h2 { margin: 0; font-size: 20px; font-weight: 600; letter-spacing: -.4px; }
+h2 span { font-size: 11px; padding: 3px 7px; background: #f0f2eb; border-radius: 5px; margin-left: 7px; color: #8b9584; vertical-align: middle; }
+.clear { background: transparent; border: 1px solid #e0e5d9; color: #788570; padding: 8px 12px; border-radius: 8px; font-size: 11px; }
+.legend { display: flex; gap: 16px; padding: 12px 26px; background: #f8f9f4; border-block: 1px solid #e9ece3; font-size: 10px; color: #7c8678; }
+.legend i { display: inline-block; width: 5px; height: 5px; border-radius: 50%; margin-right: 5px; }
+.http-dot { background: #719bc5; }.ws-dot { background: #8aab76; }.dom-dot { background: #7946b5; }
+.log-limit { margin-left: auto; font-size: 9px; }
+.logs { height: 407px; overflow-y: auto; padding: 0 24px; scrollbar-width: thin; scrollbar-color: #dce3d3 transparent; }
+.log-entry { display: grid; grid-template-columns: 55px 42px minmax(0, 1fr); gap: 12px; align-items: start; padding: 15px 0; border-bottom: 1px solid #eff1e9; }
+.log-entry time { font: 10px Consolas, monospace; color: #a0a797; padding-top: 4px; }
+.log-entry .tag { text-align: center; }
+.log-entry strong { display: block; font-size: 11px; font-weight: 500; padding-top: 2px; }
+.log-entry code { display: block; font: 11px/1.6 Consolas, monospace; color: #94a08c; margin-top: 6px; overflow-wrap: anywhere; }
+.log-footer { border-top: 1px solid #e9ece3; margin-top: auto; padding: 16px 24px; color: #97a08e; font-size: 10px; }
+.log-footer .live-dot { margin-right: 7px; width: 5px; height: 5px; }
+.empty { font-size: 13px; color: #95a08d; padding-top: 20px; }
+footer { display: flex; justify-content: space-between; margin-top: 26px; color: #9aa490; font-size: 10px; }
+footer span:last-child { font-size: 9px; letter-spacing: 1px; }
+@media (max-width: 900px) { .workspace { grid-template-columns: 1fr; }.counter-card { max-width: none; }.counter { margin-top: 12px; }.intro { margin-top: 32px; } }
+@media (max-width: 520px) { main { padding: 22px 16px; }.local { font-size: 8px; letter-spacing: .5px; }.legend { gap: 10px; padding-inline: 18px; }.log-limit { display: none; }.logs { padding-inline: 16px; }.log-entry { gap: 8px; }footer { gap: 15px; line-height: 1.6; } }
+.poll-controls { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 18px; }
+.poll-controls button { border: 1px solid #dce4df; border-radius: 8px; background: #f3f6f1; color: #365347; font-size: 12px; min-height: 34px; padding: 6px 13px; }
+.poll-controls button:hover { background: #e6eedd; }
+.poll-controls button:disabled { opacity: .35; cursor: not-allowed; }
+.poll-toggle { min-width: 94px; }
+.interval-controls { display: flex; align-items: center; gap: 12px; }
+.interval-controls > span { min-width: 32px; text-align: center; font-size: 12px; font-variant-numeric: tabular-nums; }

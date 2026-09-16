@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Crow × Alpine · Counter lab</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script defer src="/static/app.js"></script>
+    <script defer src="/static/alpine.min.js"></script>
+</head>
+<body>
+    <main x-data="counter_demo">
+        <header><a class="brand" href="/">C<span>↗</span></a><span>CROW × ALPINE.JS</span><span class="local">● LOCAL DEMO</span></header>
+        <section class="intro"><h1>Счётчик. На связи.</h1><p>Один atomic в C++. Два пути к интерфейсу.<br>Наблюдайте за обменом и реактивным обновлением в реальном времени.</p></section>
+        <div class="workspace">
+            <section class="counter-card">
+                <div class="card-heading"><span>ЗНАЧЕНИЕ НА СЕРВЕРЕ</span></div>
+                <div class="counter" x-ref="counter" x-text="counter === null ? '—' : counter">—</div>
+                <button class="increment" @click="increment()" :disabled="!connected"><span>Increment</span><span>+1 ↗</span></button>
+                <p class="sequence">increment_counter_value → get_counter_value</p>
+                <div class="http-transport">
+                    <div class="transport"><div><span class="tag http">HTTP</span><strong>Fetch / JSON</strong><small>Интервал GET: <span x-text="poll_seconds">2</span> с</small></div><span class="status" x-text="polling ? http_status : 'Пауза'">Ожидание</span></div>
+                    <div class="poll-controls">
+                        <button class="poll-toggle" @click="toggle_polling()" x-text="polling ? 'Пауза' : 'Старт'">Пауза</button>
+                        <div class="interval-controls" role="group" aria-label="Интервал HTTP-опроса">
+                            <button @click="change_interval(-1)" :disabled="poll_seconds <= 1" aria-label="Уменьшить интервал на секунду">−</button>
+                            <span><span x-text="poll_seconds">2</span> с</span>
+                            <button @click="change_interval(1)" aria-label="Увеличить интервал на секунду">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="transport"><div><span class="tag ws">WS</span><strong>WebSocket</strong><small>Команды и ответ по запросу</small></div><span class="status" :class="{ online: connected }" x-text="connected ? 'Подключён' : 'Нет связи'">Нет связи</span></div>
+            </section>
+            <section class="log-card">
+                <div class="log-heading"><div><p class="eyebrow">UNDER THE HOOD</p><h2>Журнал событий <span x-text="logs.length">0</span></h2></div><button class="clear" @click="logs = []">Очистить</button></div>
+                <div class="legend"><span><i class="http-dot"></i>HTTP</span><span><i class="ws-dot"></i>WebSocket</span><span><i class="dom-dot"></i>DOM</span><span class="log-limit">Последние 200 · новые сверху</span></div>
+                <div class="logs" tabindex="0" aria-label="Журнал обмена">
+                    <template x-for="entry in logs" :key="entry.id">
+                        <div class="log-entry"><time x-text="entry.time"></time><span class="tag" :class="entry.kind.toLowerCase()" x-text="entry.kind"></span><div><strong x-text="entry.title"></strong><code x-text="entry.detail"></code></div></div>
+                    </template>
+                    <p class="empty" x-show="logs.length === 0">Здесь появятся события обмена.</p>
+                </div>
+                <div class="log-footer"><span class="live-dot"></span> Наблюдение за текстовым узлом счётчика · MutationObserver</div>
+            </section>
+        </div>
+        <footer><span>Минимум зависимостей. Видимый обмен.</span><span>C++20 / CROW / ALPINE.JS</span></footer>
+    </main>
+</body>
+</html>
