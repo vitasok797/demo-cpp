@@ -15,7 +15,7 @@ def format_in_dir(target_dir: str) -> None:
 
     target_dir = Path(target_dir)
     if not target_dir.is_dir():
-        raise Exception('Target dir "{target_dir}" not found')
+        raise Exception(f'Target dir "{target_dir}" not found')
 
     files = []
     for ext in EXTENSIONS:

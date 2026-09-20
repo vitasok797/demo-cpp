@@ -132,7 +132,10 @@ class Console:
         stderr = completed_process.stderr or ''
 
         if check_exit_code and completed_process.returncode != 0:
-            raise error_exception(stderr.strip())
+            msg = f'({completed_process.returncode})'
+            stderr_msg = stderr.strip()
+            msg += f' {stderr_msg}' if stderr_msg else ''
+            raise error_exception(msg)
 
         return Console.ShellCommandResult(
                 exit_code=completed_process.returncode,
