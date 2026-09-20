@@ -98,6 +98,7 @@
             ],
             "cacheVariables": {
                 "VCPKG_TARGET_TRIPLET": "x64-windows-static",
+                "VCPKG_HOST_TRIPLET": "x64-windows-static",
                 "MSVC_RUNTIME_STATIC_LINKAGE": "YES"
             }
         },
