@@ -4,3 +4,6 @@ out/
 
 # Per-developer setvars scripts
 setvars.user.*
+
+# Per-developer CMake presets file
+CMakeUserPresets.json
