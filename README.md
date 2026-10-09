@@ -1,1 +1,1 @@
-# cpp-demo
+# C++ demo project
