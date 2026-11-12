@@ -64,16 +64,6 @@
             }
         },
         {
-            "name": "vs-clang-tidy",
-            "hidden": true,
-            "vendor": {
-                "microsoft.com/VisualStudioSettings/CMake/1.0": {
-                    "enableMicrosoftCodeAnalysis": true,
-                    "enableClangTidyCodeAnalysis": true
-                }
-            }
-        },
-        {
             "name": "vcpkg",
             "hidden": true,
             "cacheVariables": {
@@ -93,7 +83,6 @@
                 "win",
                 "cxx",
                 "msvc_support",
-                "vs-clang-tidy",
                 "vcpkg"
             ],
             "cacheVariables": {
